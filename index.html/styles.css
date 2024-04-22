@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    background: rgb(25, 25, 26);
+}
+
+button {
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background: rgba(0, 0, 0, .5);
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr), 0 0 60px var(--clr) 0 0 100px var(--clr);
+}
+
+button::before {
+    content: '';
+    height: 400px;
+    width: 40px;
+    position: absolute;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(.33s * var(--i));
+}
+
+button :hover::before {
+    width: 120px;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    background: #0e1630;
+    inset: 4px;
+    transition: .5s;
+}
+
+button:hover::after {
+    background: var(--clr);
+}
+
+button span {
+    position: relative;
+    font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 1;
+    text-transform: uppercase;
+    opacity: .8;
+    letter-spacing: 4px;
+    transition: 5s;
+}
+
+button:hover span {
+    opacity: 1;
+    color: #0e163b;
+}
